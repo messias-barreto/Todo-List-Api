@@ -6,6 +6,7 @@ import { CreateCategoryProjectUseCase } from "./createCategoryProjectUseCase";
 class CreateCategoryProjectController {
     async handle(request: Request, response: Response): Promise<Response> {
         const { name, description } = request.body;
+        
         const createCategoriesProjectUseCase = container.resolve(CreateCategoryProjectUseCase);
         const category = await createCategoriesProjectUseCase.execute({name, description});
         
