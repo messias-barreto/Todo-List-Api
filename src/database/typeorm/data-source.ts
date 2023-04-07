@@ -1,7 +1,9 @@
 import 'dotenv/config';
 import { DataSource } from 'typeorm'
 import { CategoryProject } from '../../modules/project/infra/typeorm/entities/CategoryProject';
-import { CreateCategoryProject1680573176547 } from './migrations/1680573176547-CreateCategoryProject';
+import { CreateCategoryProject1680573176547, 
+         CreateCategoryTodo1680908462547 
+} from './migrations';
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -11,5 +13,5 @@ export const AppDataSource = new DataSource({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     entities: [CategoryProject],
-    migrations: [CreateCategoryProject1680573176547],
+    migrations: [CreateCategoryProject1680573176547, CreateCategoryTodo1680908462547],
 })
