@@ -1,13 +1,13 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, Timestamp } from "typeorm";
 import { v4 as uuidV4 } from 'uuid';
 
-@Entity('category_todo')
-class CategoryTodo {
+@Entity('status_todo')
+class StatusTodo {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
     @Column()
-    title: string;
+    name: string;
 
     @Column()
     description: string;
@@ -22,4 +22,4 @@ class CategoryTodo {
     }
 }
 
-export  { CategoryTodo }
+export  { StatusTodo }

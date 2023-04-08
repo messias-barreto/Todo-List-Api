@@ -3,14 +3,14 @@
 [x] - Deve ser Possível cadastrar uma Categoria de Projeto 
 [x] - Não deve ser Possível cadastrar uma Categoria de Projeto com o mesmo Nome 
 [x] - Deve ser possível Listar a Categoria pelo Id
+[ ] - Deve ser possível Listar todas as Categorias
 
 
-[ ] - CATEGORIES TODO
+[ ] - STATUS TODO
 
-[ ] - Deve ser Possível cadastrar uma Categoria de Projeto 
-[ ] - Não deve ser Possível cadastrar uma Categoria de Projeto com o mesmo Nome 
+[x] - Deve ser Possível cadastrar uma Categoria de Projeto 
+[x] - Não deve ser Possível cadastrar uma Categoria de Projeto com o mesmo Nome 
 [ ] - Deve ser possível Lista a Categoria pelo Id
-
 
 [ ] - Users
 
