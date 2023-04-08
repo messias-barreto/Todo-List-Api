@@ -3,6 +3,8 @@ import { CategoriesProjectRepository } from "../../modules/project/infra/typeorm
 import { ICategoriesProjectRepository } from "../../modules/project/interfaces/ICategoryProjectRepository";
 import { StatusTodoRepository } from "../../modules/todo/infra/typeorm/repositories/StatusTodoRepository";
 import { IStatusTodoRepository } from "../../modules/todo/interfaces/IStatusTodoRepository";
+import { UserRepository } from "../../modules/user/infra/typeorm/repository/UserRepository";
+import { IUserRepository } from "../../modules/user/interfaces/IUserRepository";
 
 
 container.registerSingleton<ICategoriesProjectRepository>(
@@ -13,4 +15,9 @@ container.registerSingleton<ICategoriesProjectRepository>(
 container.registerSingleton<IStatusTodoRepository>(
     "StatusTodoRepository",
     StatusTodoRepository
+);
+
+container.registerSingleton<IUserRepository>(
+    "UserRepository",
+    UserRepository
 );
