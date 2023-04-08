@@ -1,5 +1,6 @@
 import { inject, injectable } from "tsyringe";
 import { AppErrors } from "../../../../shared/errors/AppErrors";
+import { User } from "../../infra/typeorm/entities/User";
 import { IUserRepository } from "../../interfaces/IUserRepository";
 
 
@@ -10,7 +11,7 @@ class CreateUserUseCase {
         private userRepository: IUserRepository
     ){}
 
-    async execute({name, email, login, password}: IUserDTO){
+    async execute({name, email, login, password}: IUserDTO): Promise<User> {
         const emailAlreadyExists = await this.userRepository.findUserByEmail(email);
         if(emailAlreadyExists){
             throw new AppErrors("Email Already Exists!");
