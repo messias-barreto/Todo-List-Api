@@ -2,6 +2,7 @@ import { inject, injectable } from "tsyringe";
 import { AppErrors } from "../../../../shared/errors/AppErrors";
 import { User } from "../../infra/typeorm/entities/User";
 import { IUserRepository } from "../../interfaces/IUserRepository";
+import { hash } from "bcrypt";
 
 
 @injectable()
@@ -22,7 +23,15 @@ class CreateUserUseCase {
             throw new AppErrors("Login Already Exists!");
         }
 
-        const user = await this.userRepository.create({name, email, login, password});
+        const password_hash = await hash(password, 8);
+
+        const user = await this.userRepository.create({
+            name, 
+            email, 
+            login, 
+            password: password_hash
+        });
+        
         return user;
     }
 }

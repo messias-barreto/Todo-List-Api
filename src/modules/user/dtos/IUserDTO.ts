@@ -1,7 +1,7 @@
 interface IUserDTO { 
     id?: string;
     name: string;
-    email: string;
+    email?: string;
     login: string;
     password: string;
 }

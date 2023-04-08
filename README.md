@@ -15,14 +15,23 @@
 
 [ ] - Users
 
-[ ] - Deve ser possível cadastrar um usuário 
-[ ] - Deve ser possível visualizar o profile do usuário
-[ ] - Não deve ser possível cadastrar o usuário com o mesmo login
-[ ] - Não deve ser possível cadastrar o usuário com o mesmo email
-[ ] - Deve ser possível atualizar o nome, login e senha do usuário
+[x] - Deve ser possível cadastrar um usuário 
+[x] - Deve ser possível visualizar o profile do usuário
+[x] - Não deve ser possível cadastrar o usuário com o mesmo login
+[x] - Não deve ser possível cadastrar o usuário com o mesmo email
+[x] - Deve ser possível atualizar o nome, login e senha do usuário
+[x] - A Senha do Usuário precisa ser criptografada
+[ ] - Deve ser possível realizar o login do Usuário
+[ ] - Somente será necessário visualizar Profile, se o usuário estiver autenticado
 
 
 [ ] - PROJECTS
+
+[ ] - Deve ser possível criar um projeto 
+[ ] - Deve ser possível visualizar todos os projetos vinculado ao usuário
+[ ] - Somente deve ser possível criar um projeto com o usuário autenticado
+[ ] - Deve ser possível Atualizar o Node e Descrição do Projeto
+[ ] - Deve ser possível remover o projeto
 
 
 [ ] - Todo
