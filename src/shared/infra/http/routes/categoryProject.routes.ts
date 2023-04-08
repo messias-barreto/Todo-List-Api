@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { CreateCategoryProjectController } from "../../../../modules/project/useCases/createCategoryProject/createCategoryProjectController";
-import { ListAllCategoriesProjectController } from "../../../../modules/project/useCases/listAllCategoriesProject/listAllCategoriesProjectController";
-import { ListCategoryProjectController } from "../../../../modules/project/useCases/listCategoriesProject/listCategoryProjectController";
+import { CreateCategoryProjectController } from "../../../../modules/project/useCases/createCategoryProject/CreateCategoryProjectController";
+import { ListAllCategoriesProjectController } from "../../../../modules/project/useCases/listAllCategoriesProject/ListAllCategoriesProjectController";
+import { ListCategoryProjectController } from "../../../../modules/project/useCases/listCategoriesProject/ListCategoryProjectController";
 
 const categoriesProjectRoutes = Router();
 

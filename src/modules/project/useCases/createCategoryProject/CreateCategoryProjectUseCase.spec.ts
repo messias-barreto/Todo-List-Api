@@ -1,6 +1,6 @@
 import { AppErrors } from '../../../../shared/errors/AppErrors';
 import { CategoriesProjectRepositoryInMemory } from "../../infra/typeorm/repositories/in-memory/CategoriesProjectRepositoryInMemory";
-import { CreateCategoryProjectUseCase } from "./createCategoryProjectUseCase"
+import { CreateCategoryProjectUseCase } from "./CreateCategoryProjectUseCase"
 
 let createCategoryProjectUseCase: CreateCategoryProjectUseCase;
 let categoriesRepository: CategoriesProjectRepositoryInMemory;

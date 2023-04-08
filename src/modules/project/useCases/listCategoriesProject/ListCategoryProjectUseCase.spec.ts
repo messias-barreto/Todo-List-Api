@@ -1,6 +1,6 @@
 import { CategoriesProjectRepositoryInMemory } from "../../infra/typeorm/repositories/in-memory/CategoriesProjectRepositoryInMemory";
-import { CreateCategoryProjectUseCase } from "../createCategoryProject/createCategoryProjectUseCase";
-import { ListCategoriesProjectUseCase } from "./listCategoryProjectUseCase"
+import { CreateCategoryProjectUseCase } from "../createCategoryProject/CreateCategoryProjectUseCase";
+import { ListCategoriesProjectUseCase } from "./ListCategoryProjectUseCase"
 
 describe("List Category Project", () => {
     let categoryProjectUseCase: CategoriesProjectRepositoryInMemory;

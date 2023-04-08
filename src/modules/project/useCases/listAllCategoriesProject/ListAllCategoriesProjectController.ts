@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
-import { ListAllCategoriesProjectUseCase } from "./listAllCategoriesProjectUseCase";
+import { ListAllCategoriesProjectUseCase } from "./ListAllCategoriesProjectUseCase";
 
 
 class ListAllCategoriesProjectController {
