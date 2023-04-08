@@ -1,6 +1,6 @@
 import { CategoryProject } from "../../entities/CategoryProject"; 
 import { ICategoriesProjectRepository } from "../../../../interfaces/ICategoryProjectRepository";
-import { ICategoryProjectDTO } from "../../../../dtos/CategoryProject";
+import { ICategoryProjectDTO } from "../../../../dtos/ICategoryProjectDTO";
 
 
 class CategoriesProjectRepositoryInMemory implements ICategoriesProjectRepository {

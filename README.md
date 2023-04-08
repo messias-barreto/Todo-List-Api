@@ -30,7 +30,8 @@
 [ ] - Deve ser possível criar um projeto 
 [ ] - Deve ser possível visualizar todos os projetos vinculado ao usuário
 [ ] - Somente deve ser possível criar um projeto com o usuário autenticado
-[ ] - Deve ser possível Atualizar o Node e Descrição do Projeto
+[ ] - Somente deve ser possível visualizar projetos com o usuário autenticado
+[ ] - Deve ser possível Atualizar o Nome e Descrição do Projeto
 [ ] - Deve ser possível remover o projeto
 
 

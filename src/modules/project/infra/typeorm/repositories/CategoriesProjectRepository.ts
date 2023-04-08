@@ -1,6 +1,6 @@
 import { DataSource, Repository } from "typeorm";
 import { AppDataSource } from "../../../../../database/typeorm/data-source";
-import { ICategoryProjectDTO } from "../../../dtos/CategoryProject";
+import { ICategoryProjectDTO } from "../../../dtos/ICategoryProjectDTO";
 import { ICategoriesProjectRepository } from "../../../interfaces/ICategoryProjectRepository";
 import { CategoryProject } from "../entities/CategoryProject";
 

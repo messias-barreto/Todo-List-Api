@@ -1,4 +1,4 @@
-import { ICategoryProjectDTO } from "../dtos/CategoryProject";
+import { ICategoryProjectDTO } from "../dtos/ICategoryProjectDTO";
 import { CategoryProject } from "../infra/typeorm/entities/CategoryProject";
 
 interface ICategoriesProjectRepository { 
