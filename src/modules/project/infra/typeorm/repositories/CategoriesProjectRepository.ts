@@ -18,6 +18,10 @@ class CategoriesProjectRepository implements ICategoriesProjectRepository {
         return category;
     }
 
+    async findAllCategories(): Promise<CategoryProject[]> {
+        return await this.repository.find();
+    }
+
     async findCategoryById(id: string): Promise<CategoryProject> {
         return await this.repository.findOneBy({ id });
     }
