@@ -1,7 +1,7 @@
 import { UserRepositoryInMemory } from "../../infra/typeorm/repository/in-memory/UserRepositoryInMemory"
-import { CreateUserUseCase } from "../createUser/createUserUseCase";
-import { ListProfileUserUseCase } from "../listProfileUser/listProfileUserUseCase";
-import { UpdateProfileUserUseCase } from "./updateProfileUserUseCase";
+import { CreateUserUseCase } from "../createUser/CreateUserUseCase";
+import { ListProfileUserUseCase } from "../listProfileUser/ListProfileUserUseCase";
+import { UpdateProfileUserUseCase } from "./UpdateProfileUserUseCase";
 
 
 describe("Update Profile User", () => {

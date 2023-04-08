@@ -1,6 +1,6 @@
 import { StatusTodoRepositoryInMemory } from "../../infra/typeorm/repositories/in-memory/StatusTodoRepositoryInMemory";
-import { CreateStatusTodoUseCase } from "../createStatusTodo/createStatusTodoUseCase";
-import { ListStatusTodoUseCase } from "./listStatusTodoByIdUseCase";
+import { CreateStatusTodoUseCase } from "../createStatusTodo/CreateStatusTodoUseCase";
+import { ListStatusTodoUseCase } from "./ListStatusTodoByIdUseCase";
 
 describe("List Status Todo", () => {
     let statusTodoUseCase: StatusTodoRepositoryInMemory;

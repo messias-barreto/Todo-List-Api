@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
-import { CreateStatusTodoUseCase } from "./createStatusTodoUseCase";
+import { CreateStatusTodoUseCase } from "./CreateStatusTodoUseCase";
 
 class CreateStatusTodoController {
     async handle(request: Request, response: Response): Promise<Response> {

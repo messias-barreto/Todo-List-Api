@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { CreateStatusTodoController } from "../../../../modules/todo/usecase/createStatusTodo/createStatusTodoController";
-import { ListStatusTodoController } from "../../../../modules/todo/usecase/listStatusTodoById/listStatusTodoByIdController";
+import { CreateStatusTodoController } from "../../../../modules/todo/usecase/createStatusTodo/CreateStatusTodoController";
+import { ListStatusTodoController } from "../../../../modules/todo/usecase/listStatusTodoById/ListStatusTodoByIdController";
 
 const statusTodoRoutes = Router();
 

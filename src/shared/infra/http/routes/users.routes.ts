@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { CreateUserController } from "../../../../modules/user/useCase/createUser/createUserController";
-import { ListProfileUserController } from "../../../../modules/user/useCase/listProfileUser/listProfileUserController";
-import { UpdateProfileUserController } from "../../../../modules/user/useCase/updateProfileUser/updateProfileUserController";
+import { CreateUserController } from "../../../../modules/user/useCase/createUser/CreateUserController";
+import { ListProfileUserController } from "../../../../modules/user/useCase/listProfileUser/ListProfileUserController";
+import { UpdateProfileUserController } from "../../../../modules/user/useCase/updateProfileUser/UpdateProfileUserController";
 
 const usersRoutes = Router();
 

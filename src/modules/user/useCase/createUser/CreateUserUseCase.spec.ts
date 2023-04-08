@@ -1,6 +1,6 @@
 import { AppErrors } from "../../../../shared/errors/AppErrors";
 import { UserRepositoryInMemory } from "../../infra/typeorm/repository/in-memory/UserRepositoryInMemory"
-import { CreateUserUseCase } from "./createUserUseCase";
+import { CreateUserUseCase } from "./CreateUserUseCase";
 
 describe("Create User", () => {
     let userRepository: UserRepositoryInMemory;

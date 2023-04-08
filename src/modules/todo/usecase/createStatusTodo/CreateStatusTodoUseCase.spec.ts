@@ -1,6 +1,6 @@
 import { AppErrors } from '../../../../shared/errors/AppErrors';
 import { StatusTodoRepositoryInMemory } from '../../infra/typeorm/repositories/in-memory/StatusTodoRepositoryInMemory';
-import { CreateStatusTodoUseCase } from './createStatusTodoUseCase';
+import { CreateStatusTodoUseCase } from './CreateStatusTodoUseCase';
 
 let createStatusTodoUseCase: CreateStatusTodoUseCase;
 let statusTodoRepository: StatusTodoRepositoryInMemory;
