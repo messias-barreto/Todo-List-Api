@@ -13,7 +13,7 @@
 [x] - Deve ser possível Listar todas as Categorias
 
 
-[ ] - Users
+[x] - Users
 
 [x] - Deve ser possível cadastrar um usuário 
 [x] - Deve ser possível visualizar o profile do usuário
@@ -21,8 +21,8 @@
 [x] - Não deve ser possível cadastrar o usuário com o mesmo email
 [x] - Deve ser possível atualizar o nome, login e senha do usuário
 [x] - A Senha do Usuário precisa ser criptografada
-[ ] - Deve ser possível realizar o login do Usuário
-[ ] - Somente será necessário visualizar Profile, se o usuário estiver autenticado
+[x] - Deve ser possível realizar o login do Usuário
+[x] - Somente será necessário visualizar Profile, se o usuário estiver autenticado
 
 
 [ ] - PROJECTS

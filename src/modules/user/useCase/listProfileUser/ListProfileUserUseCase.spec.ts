@@ -1,5 +1,5 @@
 import { UserRepositoryInMemory } from "../../infra/typeorm/repository/in-memory/UserRepositoryInMemory"
-import { CreateUserUseCase } from "../createUser/CreateUserUseCase";
+import { CreateUserUseCase } from "../createUser/CreateUserUseCase"; 
 import { ListProfileUserUseCase } from "./ListProfileUserUseCase";
 
 

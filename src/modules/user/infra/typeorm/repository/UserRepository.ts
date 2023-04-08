@@ -38,6 +38,15 @@ class UserRepository implements IUserRepository {
         .setParameters({id})
         .execute();
     }
+
+    // async findUserByLoginAndPassword(login: string, password: string): Promise<User> {
+    //     const user = this.repository.createQueryBuilder()
+    //     .where('login = :login OR email = :login', { login })
+    //     .andWhere('password = :password', { password })
+    //     .getOne();
+
+    //     return user;
+    // }
 }
 
 export { UserRepository }
