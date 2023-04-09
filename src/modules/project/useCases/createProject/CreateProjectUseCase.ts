@@ -12,6 +12,7 @@ class CreateProjectUseCase {
 
     async execute({ name, description, category_id, user_id }: IProjectDTO): Promise<Project> {
         const projectAlreadyExists = await this.projectRepository.findProjectByName(name);
+        
         if(projectAlreadyExists){
             throw new AppErrors("Project Already Exists!");
         }

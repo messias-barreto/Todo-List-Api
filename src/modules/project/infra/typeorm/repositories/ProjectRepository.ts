@@ -12,8 +12,14 @@ class ProjectRepository implements IprojectRepository {
         this.repository = AppDataSource.getRepository(Project);
     }
 
-    async create({name, description}: IProjectDTO): Promise<Project> {
-        const category = this.repository.create({name, description});
+    async create({ name, description, category_id, user_id }: IProjectDTO): Promise<Project> {
+        const category = this.repository.create({
+            name, 
+            description, 
+            category_id, 
+            user_id
+        });
+        
         await this.repository.save(category);
 
         return category;

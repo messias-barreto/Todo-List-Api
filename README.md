@@ -27,13 +27,13 @@
 
 [ ] - PROJECTS
 
-[ ] - Deve ser possível criar um projeto 
+[x] - Deve ser possível criar um projeto 
 [ ] - Deve ser possível visualizar todos os projetos vinculado ao usuário
-[ ] - Somente deve ser possível criar um projeto com o usuário autenticado
+[x] - Somente deve ser possível criar um projeto com o usuário autenticado
 [ ] - Somente deve ser possível visualizar projetos com o usuário autenticado
 [ ] - Deve ser possível Atualizar o Nome e Descrição do Projeto
 [ ] - Deve ser possível remover o projeto
-[ ] - Não pode ser possível cadastrar um Projeto com o Mesmo Nome
+[x] - Não pode ser possível cadastrar um Projeto com o Mesmo Nome
 
 
 [ ] - Todo

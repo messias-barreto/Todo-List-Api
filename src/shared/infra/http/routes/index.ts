@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { authenticateRoutes } from "./authenticate.routes";
 import { categoriesProjectRoutes } from "./categoryProject.routes";
+import { projectRoutes } from "./project.routes";
 import { statusTodoRoutes } from "./statusTodo.routes";
 import { usersRoutes } from "./users.routes";
 
@@ -10,6 +11,7 @@ router.use(authenticateRoutes);
 router.use('/users', usersRoutes);
 router.use('/categories-project', categoriesProjectRoutes);
 router.use('/status-todo', statusTodoRoutes);
+router.use('/projects', projectRoutes);
 
 
 export { router };
