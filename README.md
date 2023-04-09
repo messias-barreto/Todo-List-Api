@@ -13,7 +13,7 @@
 [x] - Deve ser possível Listar todas as Categorias
 
 
-[x] - Users
+[ ] - Users
 
 [x] - Deve ser possível cadastrar um usuário 
 [x] - Deve ser possível visualizar o profile do usuário
@@ -23,7 +23,7 @@
 [x] - A Senha do Usuário precisa ser criptografada
 [x] - Deve ser possível realizar o login do Usuário
 [x] - Somente será necessário visualizar Profile, se o usuário estiver autenticado
-
+[ ] - Deve ser possível atualizar a senha do Usuário
 
 [ ] - PROJECTS
 
@@ -33,6 +33,7 @@
 [ ] - Somente deve ser possível visualizar projetos com o usuário autenticado
 [ ] - Deve ser possível Atualizar o Nome e Descrição do Projeto
 [ ] - Deve ser possível remover o projeto
+[ ] - Não pode ser possível cadastrar um Projeto com o Mesmo Nome
 
 
 [ ] - Todo

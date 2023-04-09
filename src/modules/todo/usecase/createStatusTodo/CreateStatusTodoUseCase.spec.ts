@@ -20,17 +20,17 @@ describe("Create Status Todo", () => {
         expect(category).toHaveProperty("id");
     });
 
-    it("Shold not be able to create a new Status Todo if Status Name is Add", async() => {
-        expect(async () => {
-            await createStatusTodoUseCase.execute({
+    it("Shold not be able to create a new Status Todo if Status Name Already Exists!", async () => {
+        await createStatusTodoUseCase.execute({
+            name: "any_name",
+            description: "any_description"
+        })
+
+        await expect(
+            createStatusTodoUseCase.execute({
                 name: "any_name",
                 description: "any_description"
             })
-    
-            await createStatusTodoUseCase.execute({
-                name: "any_name",
-                description: "any_description"
-            })
-        }).rejects.toBeInstanceOf(AppErrors)
+        ).rejects.toEqual(new AppErrors("Status Already Exists!"));
     });
 })

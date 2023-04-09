@@ -14,6 +14,7 @@ class CreateUserUseCase {
 
     async execute({name, email, login, password}: IUserDTO): Promise<User> {
         const emailAlreadyExists = await this.userRepository.findUserByEmail(email);
+        
         if(emailAlreadyExists){
             throw new AppErrors("Email Already Exists!");
         }

@@ -30,23 +30,14 @@ class UserRepository implements IUserRepository {
         return await this.repository.findOneBy({ login }); 
     }
 
-    async updateProfileUser({name, login, password, id}: IUserDTO): Promise<void> {
+    async updateProfileUser({ name, login, id }: IUserDTO): Promise<void> {
         await this.repository.createQueryBuilder()
         .update()
-        .set({ name, login, password })
+        .set({ name, login })
         .where("id = :id")
         .setParameters({id})
         .execute();
     }
-
-    // async findUserByLoginAndPassword(login: string, password: string): Promise<User> {
-    //     const user = this.repository.createQueryBuilder()
-    //     .where('login = :login OR email = :login', { login })
-    //     .andWhere('password = :password', { password })
-    //     .getOne();
-
-    //     return user;
-    // }
 }
 
 export { UserRepository }

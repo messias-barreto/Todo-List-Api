@@ -26,7 +26,8 @@ class CategoriesProjectRepositoryInMemory implements ICategoriesProjectRepositor
     }
 
     async findCategoryByName(name: string): Promise<CategoryProject> {
-        return this.categories.find(category => category.name === name);
+        const category = this.categories.find(category => category.name === name);
+        return category;
     }
 }
 

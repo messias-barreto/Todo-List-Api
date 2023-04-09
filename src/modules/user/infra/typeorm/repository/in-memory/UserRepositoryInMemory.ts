@@ -30,11 +30,10 @@ class UserRepositoryInMemory implements IUserRepository {
      return this.users.find(user => user.login === login);   
     }
 
-    async updateProfileUser({name, login, password, id}: IUserDTO): Promise<void> {
+    async updateProfileUser({name, login, id}: IUserDTO): Promise<void> {
         const findIndex = this.users.findIndex(user => user.id === id);
         this.users[findIndex].name = name;
         this.users[findIndex].login = login;
-        this.users[findIndex].password = password;
     }
 }
 

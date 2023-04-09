@@ -8,15 +8,8 @@ class UpdateProfileUserUseCase {
         @inject("UserRepository")
         private updateProfileUserRepository: IUserRepository
     ){}
-    async execute({ name, login, password, id }: IUserDTO): Promise<void> {
-        const password_hash = await hash(password, 8);
-
-        await this.updateProfileUserRepository.updateProfileUser({
-            name, 
-            login, 
-            password: password_hash, 
-            id
-        });
+    async execute({ name, login, id }: IUserDTO): Promise<void> {
+        await this.updateProfileUserRepository.updateProfileUser({ name, login, id });
     }
 }
 

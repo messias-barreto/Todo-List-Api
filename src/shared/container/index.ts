@@ -1,6 +1,8 @@
 import { container } from "tsyringe";
 import { CategoriesProjectRepository } from "../../modules/project/infra/typeorm/repositories/CategoriesProjectRepository";
+import { ProjectRepository } from "../../modules/project/infra/typeorm/repositories/ProjectRepository";
 import { ICategoriesProjectRepository } from "../../modules/project/interfaces/ICategoryProjectRepository";
+import { IprojectRepository } from "../../modules/project/interfaces/IProjectRepository";
 import { StatusTodoRepository } from "../../modules/todo/infra/typeorm/repositories/StatusTodoRepository";
 import { IStatusTodoRepository } from "../../modules/todo/interfaces/IStatusTodoRepository";
 import { UserRepository } from "../../modules/user/infra/typeorm/repository/UserRepository";
@@ -21,3 +23,8 @@ container.registerSingleton<IUserRepository>(
     "UserRepository",
     UserRepository
 );
+
+container.registerSingleton<IprojectRepository>(
+    "ProjectRepository",
+    ProjectRepository
+)

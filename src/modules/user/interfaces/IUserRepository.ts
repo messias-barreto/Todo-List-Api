@@ -6,7 +6,7 @@ interface IUserRepository {
     findUserById(id: string): Promise<User>
     findUserByLogin(login: string): Promise<User>
     findUserByEmail(email: string): Promise<User>
-    updateProfileUser({name, login, password, id}: IUserDTO): Promise<void>
+    updateProfileUser({name, login, id}: IUserDTO): Promise<void>
 }
 
 export { IUserRepository }

@@ -11,7 +11,7 @@ describe("Create User", () => {
         createUserUseCase = new CreateUserUseCase(userRepository);
     })
 
-    it("Shold be able to create a new User", async() => {
+    it("Shold be able to create a new User", async () => {
         const user = await createUserUseCase.execute({
             name: "any_name",
             email: "any_email@gmail.com",
@@ -22,40 +22,40 @@ describe("Create User", () => {
         expect(user).toHaveProperty("id");
     });
 
-    it("Shold be not able to create a new User if Email Was Add", async() => {
-        expect(async () => {
-            await createUserUseCase.execute({
+    it("Shold be not able to create a new User if Email Already Exists!", async () => {
+        await createUserUseCase.execute({
+            name: "any_name",
+            email: "any_email@gmail.com",
+            login: "any_login_01",
+            password: "any_password"
+        });
+
+        await expect(
+            createUserUseCase.execute({
                 name: "any_name",
                 email: "any_email@gmail.com",
                 login: "any_login_01",
                 password: "any_password"
-            });
-
-            await createUserUseCase.execute({
-                name: "any_name",
-                email: "any_email@gmail.com",
-                login: "any_login_02",
-                password: "any_password"
             })
-        }).rejects.toBeInstanceOf(AppErrors);
+        ).rejects.toEqual(new AppErrors("Email Already Exists!"));
     })
 
-    it("Shold be not able to create a new User if Login Was Add", async() => {
-        expect(async () => {
-            await createUserUseCase.execute({
-                name: "any_name",
-                email: "any_email@gmail.com",
-                login: "any_login_01",
-                password: "any_password"
-            });
+    it("Shold be not able to create a new User if Login Already Exists!", async () => {
+        await createUserUseCase.execute({
+            name: "any_name",
+            email: "any_email@gmail.com",
+            login: "any_login_01",
+            password: "any_password"
+        });
 
-            await createUserUseCase.execute({
+        await expect(
+            createUserUseCase.execute({
                 name: "any_name",
-                email: "any_email_2@gmail.com",
+                email: "any_email@gmail2.com",
                 login: "any_login_01",
                 password: "any_password"
             })
-        }).rejects.toBeInstanceOf(AppErrors);
+        ).rejects.toEqual(new AppErrors("Login Already Exists!"));
     })
 })
 

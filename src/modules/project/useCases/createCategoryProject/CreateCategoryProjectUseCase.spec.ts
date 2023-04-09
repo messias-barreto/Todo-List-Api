@@ -20,17 +20,17 @@ describe("Create Category Project", () => {
         expect(category).toHaveProperty("id");
     });
 
-    it("Shold not be able to create a new Category if Category Name is Add", async() => {
-        expect(async () => {
-            await createCategoryProjectUseCase.execute({
+    it("Shold not be able to create a new Category if Category Name is Add", async () => {
+        await createCategoryProjectUseCase.execute({
+            name: "any_name",
+            description: "any_description"
+        })
+
+        await expect(
+            createCategoryProjectUseCase.execute({
                 name: "any_name",
                 description: "any_description"
             })
-    
-            await createCategoryProjectUseCase.execute({
-                name: "any_name",
-                description: "any_description"
-            })
-        }).rejects.toBeInstanceOf(AppErrors)
+        ).rejects.toEqual(new AppErrors("Categories already Exists!"));
     });
 })

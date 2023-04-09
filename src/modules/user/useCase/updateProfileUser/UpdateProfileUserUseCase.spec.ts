@@ -25,23 +25,15 @@ describe("Update Profile User", () => {
             password: "any_password",
         });
 
-        const updated_user = {
-            name: "any_updated_name",
-            email: "any_email@gmail.com",
-            login: "any_updated_login_01",
-            password: "any_updated_password",
-            id: user.id
-        }
-
         await updateProfileUserUseCase.execute({
             name: "any_updated_name",
             email: "any_email@gmail.com",
             login: "any_updated_login_01",
-            password: "any_updated_password",
             id: user.id
         });
 
         const list_user = await listProfileUserUseCase.execute(user.id);
-        expect(list_user).toEqual(updated_user);
+        expect(list_user.name).toEqual("any_updated_name");
+        expect(list_user.login).toEqual("any_updated_login_01");
     })
 })

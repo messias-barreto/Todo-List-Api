@@ -7,7 +7,7 @@
     "typeorm": "ts-node-dev  node_modules/typeorm/cli.js",
     "migration:generate": "typeorm-ts-node-commonjs migration:generate ./src/database/typeorm/migrations -d src/database/typeorm/data-source.ts",
     "migration:run": "typeorm-ts-node-commonjs -d ./src/database/typeorm/data-source.ts migration:run",
-    "test": "jest"
+    "test": "jest --runInBand --detectOpenHandles"
   },
   "license": "MIT",
   "devDependencies": {
