@@ -1,5 +1,3 @@
-import { AppDataSource } from './../../../../../../database/typeorm/data-source';
-import { Repository } from "typeorm";
 import { IprojectRepository } from "../../../../interfaces/IProjectRepository";
 import { Project } from "../../entities/Project";
 
@@ -30,6 +28,13 @@ class ProjectRepositoryInMemory implements IprojectRepository {
 
     async findProjectsById(id: string): Promise<Project> {
         return this.projects.find(project => project.id === id);
+    }
+
+    async updateProject({ name, description, category_id, id }: IProjectDTO): Promise<void> {
+        const index = this.projects.findIndex(project => project.id === id);
+        this.projects[index].name = name;
+        this.projects[index].description = description;
+        this.projects[index].category_id = category_id;
     }
 }
 

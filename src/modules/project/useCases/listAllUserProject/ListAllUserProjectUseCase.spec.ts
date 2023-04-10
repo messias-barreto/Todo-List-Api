@@ -25,7 +25,10 @@ describe("List All User Projects", () => {
 
         createUserUseCase = new CreateUserUseCase(userRepository);
         createCategoryProjectUseCase = new CreateCategoryProjectUseCase(categoriesProjectRepository);
-        createProjectUseCase = new CreateProjectUseCase(projectRepository);
+        createProjectUseCase = new CreateProjectUseCase(
+                                        projectRepository, 
+                                        categoriesProjectRepository,
+                                        userRepository);
         listAllUserProjectUseCase = new ListAllUserProjectUseCase(projectRepository, userRepository);
     });
 
@@ -58,5 +61,5 @@ describe("List All User Projects", () => {
         await expect(
             listAllUserProjectUseCase.execute("invalid_user_id")
         ).rejects.toEqual(new AppErrors("User does not Exists!"))
-    })
+    });
 })

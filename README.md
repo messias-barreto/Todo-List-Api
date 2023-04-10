@@ -28,12 +28,18 @@
 [ ] - PROJECTS
 
 [x] - Deve ser possível criar um projeto 
-[ ] - Deve ser possível visualizar todos os projetos vinculado ao usuário
-[x] - Somente deve ser possível criar um projeto com o usuário autenticado
-[ ] - Somente deve ser possível visualizar projetos com o usuário autenticado
-[ ] - Deve ser possível Atualizar o Nome e Descrição do Projeto
-[ ] - Deve ser possível remover o projeto
+[x] - Deve ser possível visualizar todos os projetos vinculados ao usuário
 [x] - Não pode ser possível cadastrar um Projeto com o Mesmo Nome
+[x] - Somente deve ser possível criar um projeto com o usuário autenticado
+[x] - Somente deve ser possível visualizar projetos com o usuário autenticado
+[x] - Deve ser possível Atualizar o Nome e Descrição do Projeto
+[ ] - Deve ser possível remover o projeto
+
+[x] - Não pode ser possível visualizar um Projeto se o Usuário não existir
+[x] - Não pode ser possível criar um Projeto se o usuário não existir
+[x] - Não pode ser possível criar um Projeto se a categoria não existir
+[x] - Não pode atualizar o projeto se ele não existir
+[x] - Não pode atualizar o projeto se a Categoria não existir
 
 
 [ ] - Todo

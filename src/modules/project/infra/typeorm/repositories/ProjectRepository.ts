@@ -37,6 +37,14 @@ class ProjectRepository implements IprojectRepository {
         return await this.repository.findOneBy({ id });
     }
 
+    async updateProject({ name, description, category_id, id }: IProjectDTO): Promise<void> {
+        await this.repository.createQueryBuilder()
+        .update()
+        .set({ name, description, category_id })
+        .where("id = :id")
+        .setParameters({ id })
+        .execute();
+    }
 }
 
 export { ProjectRepository };
