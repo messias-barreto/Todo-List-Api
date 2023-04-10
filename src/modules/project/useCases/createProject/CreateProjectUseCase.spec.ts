@@ -24,7 +24,7 @@ describe("Create a new Project", () => {
 
         createUserUseCase = new CreateUserUseCase(userRepository);
         createCategoryProjectUseCase = new CreateCategoryProjectUseCase(categoriesProjectRepository);
-        createProjectUseCase = new CreateProjectUseCase(projectRepository);
+        createProjectUseCase = new CreateProjectUseCase(projectRepository, categoriesProjectRepository);
     });
 
     it("Shold be able to Create a New Project", async () => {
@@ -81,4 +81,23 @@ describe("Create a new Project", () => {
             })
         ).rejects.toEqual(new AppErrors("Project Already Exists!"));
     });
+
+    it("Shold not be able to create project if category does not Exists!", async () => {
+        const user = await createUserUseCase.execute({
+            name: "any_name",
+            email: "any_email@gmail.com",
+            login: "any_login_01",
+            password: "any_password"
+        });
+
+        await expect(
+            createProjectUseCase.execute({
+                name: "any_project",
+                description: "ayn_description",
+                category_id: "invalid_category",
+                user_id: user.id
+            })
+        ).rejects.toEqual(new AppErrors("Category does not Exists!"));
+    })
+
 })
