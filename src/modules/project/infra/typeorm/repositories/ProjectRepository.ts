@@ -45,6 +45,10 @@ class ProjectRepository implements IprojectRepository {
         .setParameters({ id })
         .execute();
     }
+
+    async deleteProject(id: string): Promise<void> {
+        await this.repository.delete(id);
+    }
 }
 
 export { ProjectRepository };

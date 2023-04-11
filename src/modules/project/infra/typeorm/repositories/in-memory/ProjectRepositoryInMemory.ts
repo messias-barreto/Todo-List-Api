@@ -36,6 +36,10 @@ class ProjectRepositoryInMemory implements IprojectRepository {
         this.projects[index].description = description;
         this.projects[index].category_id = category_id;
     }
+
+    async deleteProject(id: string): Promise<void> {
+        this.projects.filter(project => project.id !== id);
+    }
 }
 
 export { ProjectRepositoryInMemory }

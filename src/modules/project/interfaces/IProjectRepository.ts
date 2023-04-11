@@ -5,7 +5,8 @@ interface IprojectRepository {
     findAllProjects(user_id: string): Promise<Project[]>;
     findProjectsById(id: string): Promise<Project>;
     findProjectByName(name: string): Promise<Project>;
-    updateProject({ name, description, category_id, id }: IProjectDTO): Promise<void>
+    updateProject({ name, description, category_id, id }: IProjectDTO): Promise<void>;
+    deleteProject(id: string): Promise<void>;
 }
 
 export { IprojectRepository }

@@ -25,7 +25,7 @@
 [x] - Somente será necessário visualizar Profile, se o usuário estiver autenticado
 [ ] - Deve ser possível atualizar a senha do Usuário
 
-[ ] - PROJECTS
+[x] - PROJECTS
 
 [x] - Deve ser possível criar um projeto 
 [x] - Deve ser possível visualizar todos os projetos vinculados ao usuário
@@ -33,7 +33,7 @@
 [x] - Somente deve ser possível criar um projeto com o usuário autenticado
 [x] - Somente deve ser possível visualizar projetos com o usuário autenticado
 [x] - Deve ser possível Atualizar o Nome e Descrição do Projeto
-[ ] - Deve ser possível remover o projeto
+[x] - Deve ser possível remover o projeto
 
 [x] - Não pode ser possível visualizar um Projeto se o Usuário não existir
 [x] - Não pode ser possível criar um Projeto se o usuário não existir
