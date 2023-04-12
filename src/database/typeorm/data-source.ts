@@ -7,7 +7,8 @@ import { User } from '../../modules/user/infra/typeorm/entities/User';
 import { CreateCategoryProject1680573176547, 
          CreateStatusTodo1680908462547,
          CreateUser1680917363570,
-         CreateProject1680981434895 
+         CreateProject1680981434895,
+         CreateTodo1681264978598 
 } from './migrations';
 
 export const AppDataSource = new DataSource({
@@ -25,6 +26,7 @@ export const AppDataSource = new DataSource({
     migrations: [   CreateCategoryProject1680573176547, 
                     CreateStatusTodo1680908462547, 
                     CreateUser1680917363570, 
-                    CreateProject1680981434895
+                    CreateProject1680981434895,
+                    CreateTodo1681264978598
                 ]
 });

@@ -1,11 +1,11 @@
-import { MigrationInterface, QueryRunner, Table, TableForeignKey } from "typeorm"
+import { MigrationInterface, QueryRunner, Table } from "typeorm"
 
-export class CreateProject1680981434895 implements MigrationInterface {
+export class CreateTodo1681264978598 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "projects",
+                name: "todos",
                 columns: [
                     {
                         name: "id",
@@ -13,7 +13,7 @@ export class CreateProject1680981434895 implements MigrationInterface {
                         isPrimary: true
                     },
                     {
-                        name: "name",
+                        name: "title",
                         type: "varchar"
                     },
                     {
@@ -21,35 +21,40 @@ export class CreateProject1680981434895 implements MigrationInterface {
                         type: "varchar"
                     },
                     {
-                        name: "user_id",
+                        name: "status",
                         type: "uuid"
                     },
                     {
-                        name: "category_id",
+                        name: "project_id",
                         type: "uuid"
                     },
                     {
                         name: "created_at",
                         type: "timestamp",
                         default: "now()"
+                    },
+                    {
+                        name: "updated_at",
+                        type: "timestamp",
+                        isNullable: true
                     }
                 ],
                 foreignKeys: [
                     {
-                        name: "FKUserProject",
-                        referencedTableName: "users",
+                        name: "FKStatusTodo",
+                        referencedTableName: "status_todo",
                         referencedColumnNames: ["id"],
-                        columnNames: ["user_id"],
-                        onDelete: "CASCADE",
-                        onUpdate: "CASCADE"
-                    },
-                    {
-                        name: "FKCategoryProject",
-                        referencedTableName: "category_project",
-                        referencedColumnNames: ["id"],
-                        columnNames: ["category_id"],
+                        columnNames: ["status"],
                         onDelete: "SET NULL",
                         onUpdate: "SET NULL"
+                    },
+                    {
+                        name: "FKProjectTodo",
+                        referencedTableName: "projects",
+                        referencedColumnNames: ["id"],
+                        columnNames: ["project_id"],
+                        onDelete: "CASCADE",
+                        onUpdate: "CASCADE"
                     }
                 ]
             })
@@ -57,7 +62,7 @@ export class CreateProject1680981434895 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("projects");
+        await queryRunner.dropTable("todos");
     }
 
 }
