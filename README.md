@@ -44,10 +44,10 @@
 
 [ ] - Todo
 
-[ ] - Deve ser possível criar um todo
-[ ] - Deve ser possível visualizar todos os todo's vinculados ao usuário
-[ ] - Não pode ser possível cadastrar um Todo com o Mesmo Nome
-[ ] - Somente deve ser possível criar um Todo com o usuário autenticado
+[x] - Deve ser possível criar um todo
+[x] - Deve ser possível visualizar todos os todo's vinculados ao usuário
+[x] - Não pode ser possível cadastrar um Todo com o Mesmo Nome
+[x] - Somente deve ser possível criar um Todo com o usuário autenticado
 [ ] - Somente deve ser possível visualizar todo com o usuário autenticado
 [ ] - Deve ser possível remover o todo
 
