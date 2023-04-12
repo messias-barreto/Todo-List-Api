@@ -52,4 +52,30 @@ describe("Create a new Todo", () => {
         ).rejects.toEqual(new AppErrors("Project does not Exists!"));
     });
 
+
+    it("Shold not be able create a new Todo if Name already Exists!", async() => {
+        const project = await projectRepository.create({
+            name: "any_title",
+            description: "any_description",
+            category_id: "any_category",
+            user_id: "any_user"
+        });
+
+        await createTodoRepository.execute({ 
+            title: "any_todo", 
+            description: "any_description", 
+            status: 1, 
+            project_id: project.id
+        });
+
+        await expect(
+            createTodoRepository.execute({ 
+                title: "any_todo", 
+                description: "any_description", 
+                status: 1, 
+                project_id: project.id
+            })
+        ).rejects.toEqual(new AppErrors("Todo already Exists!"))
+    });
+
 })
