@@ -27,7 +27,7 @@ describe("Create a new Todo", () => {
         const todo = await createTodoRepository.execute({ 
             title: "any_todo", 
             description: "any_description", 
-            status: 1, 
+            status: 'any_status', 
             project_id: project.id
         })
 
@@ -46,7 +46,7 @@ describe("Create a new Todo", () => {
             createTodoRepository.execute({ 
                 title: "any_todo", 
                 description: "any_description", 
-                status: 1, 
+                status: 'any_status', 
                 project_id: 'incorrect_project'
             })
         ).rejects.toEqual(new AppErrors("Project does not Exists!"));
@@ -64,7 +64,6 @@ describe("Create a new Todo", () => {
         await createTodoRepository.execute({ 
             title: "any_todo", 
             description: "any_description", 
-            status: 1, 
             project_id: project.id
         });
 
@@ -72,7 +71,6 @@ describe("Create a new Todo", () => {
             createTodoRepository.execute({ 
                 title: "any_todo", 
                 description: "any_description", 
-                status: 1, 
                 project_id: project.id
             })
         ).rejects.toEqual(new AppErrors("Todo already Exists!"))

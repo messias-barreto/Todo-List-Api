@@ -6,21 +6,17 @@ import { Todo } from "../../entities/Todo";
 class TodoRepositoryInMemory implements ITodoRepository {
     todos: Todo[] = [];
     
-    async create({ title, description, status, project_id }: ITodoDTO): Promise<Todo> {
+    async create({ title, description, project_id }: ITodoDTO): Promise<Todo> {
         const todo = new Todo();
         Object.assign(todo, {
             title,
             description,
-            status,
+            status: 1,
             project_id
         })
 
         this.todos.push(todo);
         return todo;
-    }
-
-    async deleteTodo(id: string): Promise<void> {
-        
     }
 
     async findAllTodos(project_id: string): Promise<Todo[]> {
@@ -34,6 +30,10 @@ class TodoRepositoryInMemory implements ITodoRepository {
 
     async findTodoByTitle(title: string): Promise<Todo> {
         return this.todos.find(todo => todo.title === title);
+    }
+
+    async deleteTodo(id: string): Promise<void> {
+        this.todos.filter(todo => todo.id !== id);    
     }
 }
 

@@ -4,7 +4,9 @@ import { ProjectRepository } from "../../modules/project/infra/typeorm/repositor
 import { ICategoriesProjectRepository } from "../../modules/project/interfaces/ICategoryProjectRepository";
 import { IprojectRepository } from "../../modules/project/interfaces/IProjectRepository";
 import { StatusTodoRepository } from "../../modules/todo/infra/typeorm/repositories/StatusTodoRepository";
+import { TodoRepository } from "../../modules/todo/infra/typeorm/repositories/TodoRepository";
 import { IStatusTodoRepository } from "../../modules/todo/interfaces/IStatusTodoRepository";
+import { ITodoRepository } from "../../modules/todo/interfaces/ITodoRepository";
 import { UserRepository } from "../../modules/user/infra/typeorm/repository/UserRepository";
 import { IUserRepository } from "../../modules/user/interfaces/IUserRepository";
 
@@ -27,4 +29,9 @@ container.registerSingleton<IUserRepository>(
 container.registerSingleton<IprojectRepository>(
     "ProjectRepository",
     ProjectRepository
+)
+
+container.registerSingleton<ITodoRepository>(
+    "TodoRepository",
+    TodoRepository
 )

@@ -3,6 +3,7 @@ import { DataSource } from 'typeorm'
 import { CategoryProject } from '../../modules/project/infra/typeorm/entities/CategoryProject';
 import { Project } from '../../modules/project/infra/typeorm/entities/Project';
 import { StatusTodo } from '../../modules/todo/infra/typeorm/entities/StatusTodo';
+import { Todo } from '../../modules/todo/infra/typeorm/entities/Todo';
 import { User } from '../../modules/user/infra/typeorm/entities/User';
 import { CreateCategoryProject1680573176547, 
          CreateStatusTodo1680908462547,
@@ -21,7 +22,8 @@ export const AppDataSource = new DataSource({
     entities: [ CategoryProject, 
                 StatusTodo, 
                 User, 
-                Project
+                Project,
+                Todo
             ],
     migrations: [   CreateCategoryProject1680573176547, 
                     CreateStatusTodo1680908462547, 
