@@ -35,7 +35,7 @@ describe("Create a new Todo", () => {
     });
 
     it("Shold not be able create a new Todo if Project does not Exists!", async() => {
-        const project = await projectRepository.create({
+        await projectRepository.create({
             name: "any_title",
             description: "any_description",
             category_id: "any_category",
