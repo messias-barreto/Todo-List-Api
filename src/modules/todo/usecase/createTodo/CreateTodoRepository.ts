@@ -16,6 +16,11 @@ class CreateTodoRepository {
             throw new AppErrors("Project does not Exists!");
         }
 
+        const todoAlreadyExists = await this.todoRepository.findTodoByTitle(title);
+        if(todoAlreadyExists){
+            throw new AppErrors("Todo already Exists!");
+        }
+
         const todo = await this.todoRepository.create({
             title, 
             description,
