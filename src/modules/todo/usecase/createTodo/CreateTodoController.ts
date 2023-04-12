@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
-import { CreateTodoRepository } from "./CreateTodoRepository";
+import { CreateTodoUseCase } from "./CreateTodoUseCase";
 
 
 class CreateTodoController {
@@ -8,8 +8,8 @@ class CreateTodoController {
         const { project_id } = request.params;
         const { title, description } = request.body;
 
-        const createTodoRepositoryUseCase = container.resolve(CreateTodoRepository);
-        const todo = await createTodoRepositoryUseCase.execute({
+        const createTodoUseCaseUseCase = container.resolve(CreateTodoUseCase);
+        const todo = await createTodoUseCaseUseCase.execute({
                                                                 title, 
                                                                 description, 
                                                                 project_id

@@ -6,7 +6,7 @@ import { Todo } from "../../infra/typeorm/entities/Todo";
 import { ITodoRepository } from "../../interfaces/ITodoRepository";
 
 @injectable()
-class CreateTodoRepository {
+class CreateTodoUseCase {
     constructor(
         @inject("TodoRepository")
         private todoRepository: ITodoRepository,
@@ -34,4 +34,4 @@ class CreateTodoRepository {
     }
 }
 
-export { CreateTodoRepository }
+export { CreateTodoUseCase }

@@ -1,19 +1,19 @@
 import { AppErrors } from "../../../../shared/errors/AppErrors";
 import { ProjectRepositoryInMemory } from "../../../project/infra/typeorm/repositories/in-memory/ProjectRepositoryInMemory";
 import { TodoRepositoryInMemory } from "../../infra/typeorm/repositories/in-memory/TodoRepositoryInMemory"
-import { CreateTodoRepository } from "./CreateTodoRepository";
+import { CreateTodoUseCase } from "./CreateTodoUseCase";
 
 
 
 describe("Create a new Todo", () => {
     let todoRepository: TodoRepositoryInMemory;
     let projectRepository: ProjectRepositoryInMemory;
-    let createTodoRepository: CreateTodoRepository;
+    let createTodoUseCase: CreateTodoUseCase;
 
     beforeEach(() => {
         todoRepository = new TodoRepositoryInMemory();
         projectRepository = new ProjectRepositoryInMemory();
-        createTodoRepository = new CreateTodoRepository(todoRepository, projectRepository);
+        createTodoUseCase = new CreateTodoUseCase(todoRepository, projectRepository);
     })
 
     it("Shold be able to Create Todo!", async() => {
@@ -24,7 +24,7 @@ describe("Create a new Todo", () => {
             user_id: "any_user"
         });
 
-        const todo = await createTodoRepository.execute({ 
+        const todo = await createTodoUseCase.execute({ 
             title: "any_todo", 
             description: "any_description", 
             status: 'any_status', 
@@ -43,7 +43,7 @@ describe("Create a new Todo", () => {
         });
 
         await expect(
-            createTodoRepository.execute({ 
+            createTodoUseCase.execute({ 
                 title: "any_todo", 
                 description: "any_description", 
                 status: 'any_status', 
@@ -61,14 +61,14 @@ describe("Create a new Todo", () => {
             user_id: "any_user"
         });
 
-        await createTodoRepository.execute({ 
+        await createTodoUseCase.execute({ 
             title: "any_todo", 
             description: "any_description", 
             project_id: project.id
         });
 
         await expect(
-            createTodoRepository.execute({ 
+            createTodoUseCase.execute({ 
                 title: "any_todo", 
                 description: "any_description", 
                 project_id: project.id
