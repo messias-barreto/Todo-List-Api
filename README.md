@@ -48,7 +48,7 @@
 [x] - Deve ser possível visualizar todos os todo's vinculados ao usuário
 [x] - Não pode ser possível cadastrar um Todo com o Mesmo Nome
 [x] - Somente deve ser possível criar um Todo com o usuário autenticado
-[ ] - Somente deve ser possível visualizar todo com o usuário autenticado
+[x] - Somente deve ser possível visualizar todo com o usuário autenticado
 [ ] - Deve ser possível remover o todo
 
-[ ] - Não pode ser possível visualizar um Todo se o Projeto não existir
+[x] - Não pode ser possível visualizar um Todo se o Projeto não existir

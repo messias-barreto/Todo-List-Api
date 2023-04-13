@@ -1,12 +1,15 @@
+import { inject, injectable } from "tsyringe";
 import { AppErrors } from "../../../../shared/errors/AppErrors";
 import { IprojectRepository } from "../../../project/interfaces/IProjectRepository";
 import { Todo } from "../../infra/typeorm/entities/Todo";
 import { ITodoRepository } from "../../interfaces/ITodoRepository";
 
-
+@injectable()
 class ListAllTodosProjectUseCase {
     constructor(
+        @inject("TodoRepository")
         private todoRepository: ITodoRepository,
+        @inject("ProjectRepository")
         private projectRepository: IprojectRepository
     ){}
 
