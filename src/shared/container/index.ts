@@ -8,7 +8,9 @@ import { TodoRepository } from "../../modules/todo/infra/typeorm/repositories/To
 import { IStatusTodoRepository } from "../../modules/todo/interfaces/IStatusTodoRepository";
 import { ITodoRepository } from "../../modules/todo/interfaces/ITodoRepository";
 import { UserRepository } from "../../modules/user/infra/typeorm/repository/UserRepository";
+import { UserTokensRepository } from "../../modules/user/infra/typeorm/repository/UserTokensRepository";
 import { IUserRepository } from "../../modules/user/interfaces/IUserRepository";
+import { IUserTokensRepository } from "../../modules/user/interfaces/IUserTokensRepository";
 
 
 container.registerSingleton<ICategoriesProjectRepository>(
@@ -34,4 +36,9 @@ container.registerSingleton<IprojectRepository>(
 container.registerSingleton<ITodoRepository>(
     "TodoRepository",
     TodoRepository
+)
+
+container.registerSingleton<IUserTokensRepository>(
+    "UserTokensRepository",
+    UserTokensRepository
 )

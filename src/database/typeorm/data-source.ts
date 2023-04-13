@@ -5,11 +5,13 @@ import { Project } from '../../modules/project/infra/typeorm/entities/Project';
 import { StatusTodo } from '../../modules/todo/infra/typeorm/entities/StatusTodo';
 import { Todo } from '../../modules/todo/infra/typeorm/entities/Todo';
 import { User } from '../../modules/user/infra/typeorm/entities/User';
+import { UserTokens } from '../../modules/user/infra/typeorm/entities/UserTokens';
 import { CreateCategoryProject1680573176547, 
          CreateStatusTodo1680908462547,
          CreateUser1680917363570,
          CreateProject1680981434895,
-         CreateTodo1681264978598 
+         CreateTodo1681264978598,
+         CreateUsersToken1681351191993 
 } from './migrations';
 
 export const AppDataSource = new DataSource({
@@ -23,12 +25,14 @@ export const AppDataSource = new DataSource({
                 StatusTodo, 
                 User, 
                 Project,
-                Todo
+                Todo,
+                UserTokens
             ],
     migrations: [   CreateCategoryProject1680573176547, 
                     CreateStatusTodo1680908462547, 
                     CreateUser1680917363570, 
                     CreateProject1680981434895,
-                    CreateTodo1681264978598
+                    CreateTodo1681264978598,
+                    CreateUsersToken1681351191993
                 ]
 });

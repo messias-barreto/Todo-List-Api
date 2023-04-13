@@ -4,6 +4,8 @@ import { IUserRepository } from "../../interfaces/IUserRepository";
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
 import auth from "../../../../config/auth";
+import { IUserTokensRepository } from "../../interfaces/IUserTokensRepository";
+import dayjs from "dayjs";
 
 interface IRequest {
     user: {
@@ -11,13 +13,16 @@ interface IRequest {
         login: string;
     },
     token: string;
+    refresh_token: string;
 }
 
 @injectable()
 class AuthenticateUserUseCase {
     constructor(
         @inject("UserRepository")
-        private userRepository: IUserRepository
+        private userRepository: IUserRepository,
+        @inject("UserTokensRepository")
+        private userTokensRepository: IUserTokensRepository
     ){}
 
     async execute(login:string, password:string): Promise<IRequest>{
@@ -31,18 +36,31 @@ class AuthenticateUserUseCase {
             throw new AppErrors("Login or Password incorrect");
         }
 
-        const token = sign({}, auth.secret_refresh_token, {
+        const token = sign({}, auth.secret_token, {
             subject: user.id,
-            expiresIn: "1d"
+            expiresIn: auth.expires_in_token
+        });
+
+        const refresh_token = sign({ login }, auth.secret_refresh_token, {
+            subject: user.id,
+            expiresIn: auth.expires_in_refresh_token
         })
+
+        const expires_date = dayjs().add(auth.expires_refresh_token_days, "days").toDate();
         
+        await this.userTokensRepository.create({
+            expires_date,
+            refresh_token,
+            user_id: user.id
+        })
 
         return { 
             user: {
                 name: user.name,
                 login: user.login
             }, 
-            token 
+            token,
+            refresh_token
         }
     }
 }
