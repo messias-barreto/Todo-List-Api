@@ -38,6 +38,14 @@ class UserRepository implements IUserRepository {
         .setParameters({id})
         .execute();
     }
+
+    async updatePasswordUser(password: string, id: string): Promise<void> {
+        await this.repository.createQueryBuilder()
+        .update()
+        .set({ password })
+        .where("id = :id", { id })
+        .execute();
+    }
 }
 
 export { UserRepository }

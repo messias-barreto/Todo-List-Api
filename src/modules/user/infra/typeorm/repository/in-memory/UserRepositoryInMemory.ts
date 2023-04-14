@@ -35,6 +35,11 @@ class UserRepositoryInMemory implements IUserRepository {
         this.users[findIndex].name = name;
         this.users[findIndex].login = login;
     }
+
+    async updatePasswordUser(password: string, id: string): Promise<void> {
+        const findIndex = this.users.findIndex(user => user.id === id);
+        this.users[findIndex].password = password;
+    }
 }
 
 export { UserRepositoryInMemory }

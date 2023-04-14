@@ -13,7 +13,7 @@
 [x] - Deve ser possível Listar todas as Categorias
 
 
-[ ] - Users
+[x] - Users
 
 [x] - Deve ser possível cadastrar um usuário 
 [x] - Deve ser possível visualizar o profile do usuário
@@ -23,7 +23,7 @@
 [x] - A Senha do Usuário precisa ser criptografada
 [x] - Deve ser possível realizar o login do Usuário
 [x] - Somente será necessário visualizar Profile, se o usuário estiver autenticado
-[ ] - Deve ser possível atualizar a senha do Usuário
+[x] - Deve ser possível atualizar a senha do Usuário
 
 [x] - PROJECTS
 
@@ -42,13 +42,13 @@
 [x] - Não pode atualizar o projeto se a Categoria não existir
 
 
-[ ] - Todo
+[x] - Todo
 
 [x] - Deve ser possível criar um todo
 [x] - Deve ser possível visualizar todos os todo's vinculados ao usuário
 [x] - Não pode ser possível cadastrar um Todo com o Mesmo Nome
 [x] - Somente deve ser possível criar um Todo com o usuário autenticado
 [x] - Somente deve ser possível visualizar todo com o usuário autenticado
-[ ] - Deve ser possível remover o todo
+[x] - Deve ser possível remover o todo
 
 [x] - Não pode ser possível visualizar um Todo se o Projeto não existir
