@@ -33,7 +33,8 @@ class TodoRepositoryInMemory implements ITodoRepository {
     }
 
     async deleteTodo(id: string): Promise<void> {
-        this.todos.filter(todo => todo.id !== id);    
+        const todos = this.todos.filter(todo => todo.id !== id);
+        this.todos = todos;    
     }
 }
 
