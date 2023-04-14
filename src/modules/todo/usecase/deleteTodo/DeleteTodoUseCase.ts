@@ -5,15 +5,14 @@ class DeleteTodoUseCase {
     constructor(
         private todoRepository: ITodoRepository
     ){}
-    async execute(id: string):Promise<any> {
+    async execute(id: string):Promise<void> {
         const todoAlreadyExists = await this.todoRepository.findTodoById(id);
         
         if(!todoAlreadyExists) {
-            throw new AppErrors("Todo does not Exists!", 400);
+            throw new AppErrors("Todo does not Exists!");
         }
 
         await this.todoRepository.deleteTodo(id);
-        return { status: 200 }
     }
 }
 
