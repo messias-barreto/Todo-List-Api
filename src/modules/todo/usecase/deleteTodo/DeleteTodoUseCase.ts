@@ -1,8 +1,11 @@
+import { inject, injectable } from "tsyringe";
 import { AppErrors } from "../../../../shared/errors/AppErrors";
 import { ITodoRepository } from "../../interfaces/ITodoRepository";
 
+@injectable()
 class DeleteTodoUseCase { 
     constructor(
+        @inject("TodoRepository")
         private todoRepository: ITodoRepository
     ){}
     async execute(id: string):Promise<void> {
