@@ -1,15 +1,18 @@
 import { AppErrors } from './../../errors/AppErrors';
 import "reflect-metadata";
-import express, { NextFunction, Request, Response } from "express";
+import express, { NextFunction, Request, response, Response } from "express";
 import "express-async-errors";
 import { AppDataSource } from "../../../database/typeorm/data-source";
 import { router } from "./routes";
 import "../../container";
+import cors from 'cors';
 
 
 const data_source = AppDataSource.initialize().then(() => {
     const app = express();
     app.use(express.json());
+
+    app.use(cors());
     app.use(router);
 
     app.use((err: Error, request: Request, response: Response, next: NextFunction) => {
