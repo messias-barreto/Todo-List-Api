@@ -11,7 +11,6 @@ class ListAllStatusTodoUseCase {
 
     async execute(): Promise<StatusTodo[]> {
         const data = await this.listTodoRepository.findAllStatusTodo();
-        console.log(data)
         return data;
     }
 }
