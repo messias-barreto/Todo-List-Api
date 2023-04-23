@@ -6,25 +6,30 @@ import { StatusTodo } from "../entities/StatusTodo";
 
 
 class StatusTodoRepository implements IStatusTodoRepository {
-    private repositoy: Repository<StatusTodo>;
+    private repository: Repository<StatusTodo>;
 
     constructor(){
-        this.repositoy = AppDataSource.getRepository(StatusTodo);
+        this.repository = AppDataSource.getRepository(StatusTodo);
     }
 
     async create({ name, description }: IStatusTodoDTO): Promise<StatusTodo> {
-        const status = this.repositoy.create({name, description});
-        this.repositoy.save(status);
+        const status = this.repository.create({name, description});
+        this.repository.save(status);
 
         return status;
     }
 
+    async findAllStatusTodo(): Promise<StatusTodo[]> {
+        const status = await this.repository.find();
+        return status;
+    }
+
     async findCategoryById(id: string): Promise<StatusTodo> {
-        return await this.repositoy.findOneBy({ id });
+        return await this.repository.findOneBy({ id });
     }
 
     async findCategoryByName(name: string): Promise<StatusTodo> {
-        return await this.repositoy.findOneBy({ name });
+        return await this.repository.findOneBy({ name });
     }
 }
 

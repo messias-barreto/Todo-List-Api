@@ -18,6 +18,10 @@ class StatusTodoRepositoryInMemory implements IStatusTodoRepository {
         return new_status;
     }
 
+    async findAllStatusTodo(): Promise<StatusTodo[]> {
+        return this.status;
+    }
+
     async findCategoryById(id: string): Promise<StatusTodo> {
         const find_status = this.status.find(status => status.id === id);
         return find_status;
