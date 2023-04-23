@@ -1,6 +1,6 @@
 import { StatusTodoRepositoryInMemory } from "../../infra/typeorm/repositories/in-memory/StatusTodoRepositoryInMemory";
 import { CreateStatusTodoUseCase } from "../createStatusTodo/CreateStatusTodoUseCase";
-import { ListAllStatusTodoUseCase } from "./ListAllStatusTodo";
+import { ListAllStatusTodoUseCase } from "./ListAllStatusTodoUseCase";
 
 describe("List All Status Todo", () => {
     let statusTodoUseCase: StatusTodoRepositoryInMemory;
@@ -13,7 +13,7 @@ describe("List All Status Todo", () => {
         listStatusTodoUseCase = new ListAllStatusTodoUseCase(statusTodoUseCase);
     });
 
-    it("Shold be able to list All status todo by id", async () => {
+    it("Shold be able to list All status todo", async () => {
         const category = await createStatusTodoUseCase.execute({
             name: "any_name",
             description: "any_description"
