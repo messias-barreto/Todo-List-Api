@@ -9,7 +9,7 @@ import { Todo } from "../entities/Todo";
 class TodoRepository implements ITodoRepository {
     private repository: Repository<Todo>;
 
-    constructor(){
+    constructor() {
         this.repository = AppDataSource.getRepository(Todo);
     }
 
@@ -17,18 +17,27 @@ class TodoRepository implements ITodoRepository {
         const todo = this.repository.create({
             title,
             description,
-            status: 'a4f26f01-2d94-48d3-823c-8af303edefc0',
-            project_id
-        });    
+            project_id,
+            status: 'b6510aa9-e1b3-4e5e-9a4d-b1ab3b3d3d9b'
+        });
 
         await this.repository.save(todo);
         return todo;
     }
 
     async findAllTodos(project_id: string): Promise<Todo[]> {
-        const todos = await this.repository.findBy({ project_id });
-        return todos;
-    }
+        const todos = await this.repository.query(
+                        `select todos.id as id, 
+                                todos.title as title, 
+                                todos.description,
+                                status_todo."name" as status
+                        from  todos,
+                              status_todo
+                        where    status_todo.id  = todos.status
+                        and      todos.project_id = '${project_id}'
+                        order by status_todo.ordem, todos.title`);
+    return todos;
+}
 
     async findTodoById(id: string): Promise<Todo> {
         const todo = await this.repository.findOneBy({ id });
@@ -38,6 +47,15 @@ class TodoRepository implements ITodoRepository {
     async findTodoByTitle(title: string): Promise<Todo> {
         const todo = await this.repository.findOneBy({ title });
         return todo;
+    }
+
+    async finishTaskTodo(id: string, status: string): Promise<void> {
+        await this.repository.createQueryBuilder()
+            .update()
+            .set({ status })
+            .where("id = :id")
+            .setParameters({ id })
+            .execute();
     }
 
     async deleteTodo(id: string): Promise<void> {

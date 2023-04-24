@@ -8,6 +8,7 @@ interface ITodoRepository {
     findTodoById(id: string): Promise<Todo>;
     findTodoByTitle(name: string): Promise<Todo>;
     deleteTodo(id: string): Promise<void>;
+    finishTaskTodo(id: string, status: string): Promise<void>;
 }
 
 export { ITodoRepository }

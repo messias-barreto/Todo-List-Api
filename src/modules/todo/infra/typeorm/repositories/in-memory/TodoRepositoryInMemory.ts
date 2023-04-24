@@ -32,6 +32,10 @@ class TodoRepositoryInMemory implements ITodoRepository {
         return this.todos.find(todo => todo.title === title);
     }
 
+    async finishTaskTodo(id: string): Promise<void> {
+        
+    }
+
     async deleteTodo(id: string): Promise<void> {
         const todos = this.todos.filter(todo => todo.id !== id);
         this.todos = todos;    

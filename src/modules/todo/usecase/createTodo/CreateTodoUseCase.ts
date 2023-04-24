@@ -27,7 +27,8 @@ class CreateTodoUseCase {
         const todo = await this.todoRepository.create({
             title, 
             description,
-            project_id
+            project_id,
+            status: 'b6510aa9-e1b3-4e5e-9a4d-b1ab3b3d3d9b'
         });
 
         return todo;
