@@ -14,4 +14,5 @@ Projeto Tem como objetivo desenvolver o back end de uma Lista de Tarefas, aborda
 ## Instalação 
 - Clonar o Repositório
 - Rodar o comando **yarn** 
+- Rodar o comando **yarn seed** para preencher as tabelas **Category Project** e **Status Todo**
 - Rodar o comando **yarn dev**
