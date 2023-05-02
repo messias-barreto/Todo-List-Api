@@ -27,7 +27,7 @@ class CreateProjectUseCase {
             throw new AppErrors("User does not Exists!");
         }
 
-        const projectAlreadyExists = await this.projectRepository.findProjectByName(name);
+        const projectAlreadyExists = await this.projectRepository.findProjectByName(name, user_id);
 
         if(projectAlreadyExists){
             throw new AppErrors("Project Already Exists!");

@@ -8,7 +8,7 @@ import dayjs from 'dayjs';
 
 interface IPayload {
     sub: string;
-    email: string;
+    login: string;
 }
 
 @injectable()
@@ -18,7 +18,7 @@ class RefreshTokenUseCase {
         private userTokensRepository: IUserTokensRepository
     ) {}
     async execute(token: string): Promise<string> {
-        const {sub, email } = verify(token, auth.secret_refresh_token) as IPayload;
+        const {sub, login } = verify(token, auth.secret_refresh_token) as IPayload;
         const user_id = sub; 
 
         const userToken = await this.userTokensRepository.findByUserIdAndRefreshToken(
@@ -32,7 +32,7 @@ class RefreshTokenUseCase {
 
         await this.userTokensRepository.deleteById(userToken.id);
 
-        const refresh_token = sign({ email }, auth.secret_refresh_token, {
+        const refresh_token = sign({ login }, auth.secret_refresh_token, {
             subject: user_id,
             expiresIn: auth.expires_in_refresh_token
         })

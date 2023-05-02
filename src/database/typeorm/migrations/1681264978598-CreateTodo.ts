@@ -1,3 +1,4 @@
+import { type } from "os";
 import { MigrationInterface, QueryRunner, Table } from "typeorm"
 
 export class CreateTodo1681264978598 implements MigrationInterface {

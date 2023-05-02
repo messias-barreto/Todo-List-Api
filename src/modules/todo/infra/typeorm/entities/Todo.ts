@@ -1,5 +1,6 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, Timestamp, UpdateDateColumn } from "typeorm";
 import { v4 as uuidV4 } from 'uuid';
+import { Project } from "../../../../project/infra/typeorm/entities/Project";
 import { StatusTodo } from "./StatusTodo";
 
 @Entity('todos')
@@ -23,6 +24,9 @@ class Todo {
     @JoinColumn({ name: "status" })
     status_todo: StatusTodo;
 
+    @ManyToOne(() => Project)
+    @JoinColumn({ name: 'project_id'})
+    project: Project;
 
     @CreateDateColumn()
     created_at: Date;

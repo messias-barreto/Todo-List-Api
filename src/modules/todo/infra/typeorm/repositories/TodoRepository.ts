@@ -13,12 +13,12 @@ class TodoRepository implements ITodoRepository {
         this.repository = AppDataSource.getRepository(Todo);
     }
 
-    async create({ title, description, project_id }: ITodoDTO): Promise<Todo> {
+    async create({ title, description, project_id, status }: ITodoDTO): Promise<Todo> {
         const todo = this.repository.create({
             title,
             description,
             project_id,
-            status: 'b6510aa9-e1b3-4e5e-9a4d-b1ab3b3d3d9b'
+            status
         });
 
         await this.repository.save(todo);
@@ -44,8 +44,8 @@ class TodoRepository implements ITodoRepository {
         return todo;
     }
 
-    async findTodoByTitle(title: string): Promise<Todo> {
-        const todo = await this.repository.findOneBy({ title });
+    async findTodoByTitle(title: string, project_id: string): Promise<Todo> {
+        const todo = await this.repository.findOneBy({ title, project_id });
         return todo;
     }
 

@@ -13,13 +13,13 @@ class CreateTodoUseCase {
         @inject("ProjectRepository")
         private projectRepository: IprojectRepository
     ){}
-    async execute({ title, description, project_id }: ITodoDTO):Promise<Todo> {
+    async execute({ title, description, project_id, status }: ITodoDTO):Promise<Todo> {
         const projectAlreadyExists = await this.projectRepository.findProjectsById(project_id);
         if(!projectAlreadyExists) {
             throw new AppErrors("Project does not Exists!");
         }
 
-        const todoAlreadyExists = await this.todoRepository.findTodoByTitle(title);
+        const todoAlreadyExists = await this.todoRepository.findTodoByTitle(title, project_id);
         if(todoAlreadyExists){
             throw new AppErrors("Todo already Exists!");
         }
@@ -28,7 +28,7 @@ class CreateTodoUseCase {
             title, 
             description,
             project_id,
-            status: 'b6510aa9-e1b3-4e5e-9a4d-b1ab3b3d3d9b'
+            status
         });
 
         return todo;

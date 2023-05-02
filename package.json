@@ -9,7 +9,7 @@
     "migration:run": "typeorm-ts-node-commonjs -d ./src/database/typeorm/data-source.ts migration:run",
     "test": "jest --runInBand --detectOpenHandles",
 
-    "statustodo:seed": "ts-node-dev ./src/shared/infra/typeorm/seed/index.ts"
+    "seed:generate": "ts-node-dev ./src/shared/infra/typeorm/seed/index.ts"
   },
   "license": "MIT",
   "devDependencies": {

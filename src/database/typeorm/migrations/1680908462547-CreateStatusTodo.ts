@@ -22,6 +22,10 @@ export class CreateStatusTodo1680908462547 implements MigrationInterface {
                         isNullable: true
                     },
                     {
+                        name: "ordem",
+                        type: "integer"
+                    },
+                    {
                         name: "created_at",
                         type: "timestamp",
                         default: "now()"

@@ -28,8 +28,8 @@ class TodoRepositoryInMemory implements ITodoRepository {
         return this.todos.find(todo => todo.id === id);
     }
 
-    async findTodoByTitle(title: string): Promise<Todo> {
-        return this.todos.find(todo => todo.title === title);
+    async findTodoByTitle(title: string, project_id: string): Promise<Todo> {
+        return this.todos.find(todo => todo.title === title && todo.project_id === project_id);
     }
 
     async finishTaskTodo(id: string): Promise<void> {
