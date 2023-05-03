@@ -6,7 +6,6 @@ import { Project } from "../entities/Project";
 
 class ProjectRepository implements IprojectRepository {
     private repository: Repository<Project>;
-
     constructor(){
         this.repository = AppDataSource.getRepository(Project);
     }
