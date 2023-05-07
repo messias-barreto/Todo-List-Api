@@ -14,7 +14,7 @@ const updatePasswordUserController = new UpdatePasswordUserController();
 
 usersRoutes.post("/", createUserController.handle);
 usersRoutes.get("/:id", ensureAuthenticated, listProfileUserController.handle);
-usersRoutes.patch("/profile/:id", ensureAuthenticated, updateProfileUserController.handle);
-usersRoutes.patch("/password/:id", ensureAuthenticated, updatePasswordUserController.handle);
+usersRoutes.patch("/profile", ensureAuthenticated, updateProfileUserController.handle);
+usersRoutes.patch("/password", ensureAuthenticated, updatePasswordUserController.handle);
 
 export { usersRoutes };

@@ -8,8 +8,8 @@ class UpdateProfileUserUseCase {
         @inject("UserRepository")
         private updateProfileUserRepository: IUserRepository
     ){}
-    async execute({ name, login, id }: IUserDTO): Promise<void> {
-        await this.updateProfileUserRepository.updateProfileUser({ name, login, id });
+    async execute({ name, login, email, id }: IUserDTO): Promise<void> {
+        await this.updateProfileUserRepository.updateProfileUser({ name, login, email, id });
     }
 }
 

@@ -5,11 +5,11 @@ import { UpdatePasswordUserUseCase } from "./UpdatePasswordUserUseCase";
 
 class UpdatePasswordUserController {
     async handle(request: Request, response: Response): Promise<Response> {
-        const { id } = request.params;
-        const { password } = request.body;
+        const { id } = request.user;
+        const { currentPassword, newPassword } = request.body;
 
         const updatePasswordUseCase = container.resolve(UpdatePasswordUserUseCase);
-        await updatePasswordUseCase.execute(id, password);
+        await updatePasswordUseCase.execute(id, currentPassword, newPassword);
 
         return response.json({ message: "Password was Updated!"})
     }

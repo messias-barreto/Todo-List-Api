@@ -30,10 +30,10 @@ class UserRepository implements IUserRepository {
         return await this.repository.findOneBy({ login }); 
     }
 
-    async updateProfileUser({ name, login, id }: IUserDTO): Promise<void> {
+    async updateProfileUser({ name, login, password, id }: IUserDTO): Promise<void> {
         await this.repository.createQueryBuilder()
         .update()
-        .set({ name, login })
+        .set({ name, login, password })
         .where("id = :id")
         .setParameters({id})
         .execute();
