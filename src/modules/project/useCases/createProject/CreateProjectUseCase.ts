@@ -19,17 +19,17 @@ class CreateProjectUseCase {
     async execute({ name, description, category_id, user_id }: IProjectDTO): Promise<Project> {
         const categoryProjectAlreadyExists = await this.categoriesProjectRepository.findCategoryById(category_id);
         if(!categoryProjectAlreadyExists){
-            throw new AppErrors("Category does not Exists!");
+            throw new AppErrors("Categoria não Existe!");
         }
 
         const userAlreadyExists = await this.userRepository.findUserById(user_id);
         if(!userAlreadyExists){
-            throw new AppErrors("User does not Exists!");
+            throw new AppErrors("Usuário não Existe!");
         }
 
         const projectAlreadyExists = await this.projectRepository.findProjectByName(name, user_id);
         if(projectAlreadyExists){
-            throw new AppErrors("Project Already Exists!");
+            throw new AppErrors("Projeto Já Foi Adicionado!");
         }
         
         const project = await this.projectRepository.create({

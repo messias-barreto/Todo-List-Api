@@ -16,7 +16,7 @@ class CreateProjectController {
             user_id: id 
         });
 
-        return response.status(201).json(project);
+        return response.status(201).json({message: 'Projeto foi Adicionado!', project});
     }
 }
 

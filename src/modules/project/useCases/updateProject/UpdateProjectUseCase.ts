@@ -21,10 +21,20 @@ class UpdateProjectUseCase {
         private categoriesProjectRepository: ICategoriesProjectRepository
     ){}
     
-    async execute({ name, description, category_id, id }: IProjectDTO): Promise<void> {
+    async execute({ name, description, category_id, id, user_id }: IProjectDTO): Promise<void> {
         const projectAlreadyExists = await this.projectRepository.findProjectsById(id);
         if(!projectAlreadyExists){
-            throw new AppErrors("Project does not Found!");
+            throw new AppErrors("Projeto Não foi Encontrado!");
+        }
+
+        const categoryProjectAlreadyExists = await this.categoriesProjectRepository.findCategoryById(category_id);
+        if(!categoryProjectAlreadyExists) {
+            throw new AppErrors("Categoria do Projeto Não foi Encontrada!");
+        }
+
+        const projectNameAlreadyExists = await this.projectRepository.findProjectByName(name, user_id); 
+        if(projectNameAlreadyExists) {
+            throw new AppErrors("Projeto com o Mesmo Nome ja foi Cadastrado!");
         }
 
         await this.projectRepository.updateProject({

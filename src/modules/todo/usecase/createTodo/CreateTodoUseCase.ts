@@ -21,7 +21,7 @@ class CreateTodoUseCase {
 
         const todoAlreadyExists = await this.todoRepository.findTodoByTitle(title, project_id);
         if(todoAlreadyExists){
-            throw new AppErrors("Todo already Exists!");
+            throw new AppErrors("Essa Tarefa Já foi adicionada!");
         }
 
         const todo = await this.todoRepository.create({

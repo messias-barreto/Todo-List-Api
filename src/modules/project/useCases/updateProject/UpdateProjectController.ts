@@ -16,7 +16,7 @@ class UpdateProjectController {
             id
         });
 
-        return response.json({message: "Project was Updated!"});
+        return response.json({message: "Projeto foi Atualizado!"});
     }
 }
 
