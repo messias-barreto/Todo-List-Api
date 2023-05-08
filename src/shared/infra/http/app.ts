@@ -23,7 +23,7 @@ const data_source = AppDataSource.initialize().then(() => {
         return response.status(500).json({ status: "error", message:  `Internal server Error - ${err.message}`})
     })
 
-    app.listen(3300, () => console.log("Server is running in the port 3300"))
+    app.listen(3300, () => console.log("Server is running"))
 })
 .catch((err) => {
     console.error("Does not possible initialization Data Source");

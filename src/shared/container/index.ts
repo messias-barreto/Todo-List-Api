@@ -11,7 +11,7 @@ import { UserRepository } from "../../modules/user/infra/typeorm/repository/User
 import { UserTokensRepository } from "../../modules/user/infra/typeorm/repository/UserTokensRepository";
 import { IUserRepository } from "../../modules/user/interfaces/IUserRepository";
 import { IUserTokensRepository } from "../../modules/user/interfaces/IUserTokensRepository";
-
+import './providers/index';
 
 container.registerSingleton<ICategoriesProjectRepository>(
     "CategoriesProjectRepository",

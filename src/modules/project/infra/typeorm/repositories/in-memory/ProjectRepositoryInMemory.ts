@@ -22,8 +22,8 @@ class ProjectRepositoryInMemory implements IprojectRepository {
         return this.projects.filter(project => project.user_id === user_id);
     }
 
-    async findProjectByName(name: string): Promise<Project> {
-        return this.projects.find(project => project.name === name);
+    async findProjectByName(name: string, user_id: string): Promise<Project> {
+        return this.projects.find(project => project.name === name && project.user_id === user_id);
     }
 
     async findProjectsById(id: string): Promise<Project> {

@@ -92,7 +92,7 @@ describe("Update Project", () => {
               category_id: category.id,
               id: "incorrect Project"
           })
-      ).rejects.toEqual(new AppErrors("Project does not Found!"))
+      ).rejects.toEqual(new AppErrors("Projeto Não foi Encontrado!"))
   })
 
 })

@@ -5,7 +5,7 @@ import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
 import auth from "../../../../config/auth";
 import { IUserTokensRepository } from "../../interfaces/IUserTokensRepository";
-import dayjs from "dayjs";
+import { IDateProvider } from "../../../../shared/container/providers/DateProvider/IDateProvider";
 
 interface IRequest {
     user: {
@@ -23,7 +23,9 @@ class AuthenticateUserUseCase {
         @inject("UserRepository")
         private userRepository: IUserRepository,
         @inject("UserTokensRepository")
-        private userTokensRepository: IUserTokensRepository
+        private userTokensRepository: IUserTokensRepository,
+        @inject("DaysDateProvider")
+        private dateProvider: IDateProvider
     ){}
 
     async execute(login:string, password:string): Promise<IRequest>{
@@ -47,7 +49,7 @@ class AuthenticateUserUseCase {
             expiresIn: auth.expires_in_refresh_token
         })
 
-        const expires_date = dayjs().add(auth.expires_refresh_token_days, "days").toDate();
+        const expires_date = this.dateProvider.addDays(auth.expires_refresh_token_days);
         
         await this.userTokensRepository.create({
             expires_date,

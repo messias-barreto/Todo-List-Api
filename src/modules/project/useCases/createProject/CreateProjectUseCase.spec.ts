@@ -82,7 +82,7 @@ describe("Create a new Project", () => {
                 category_id: category.id,
                 user_id: user.id
             })
-        ).rejects.toEqual(new AppErrors("Project Already Exists!"));
+        ).rejects.toEqual(new AppErrors("Projeto Já Foi Adicionado!"));
     });
 
     it("Shold not be able to create project if user does not Exists!", async () => {
@@ -98,7 +98,7 @@ describe("Create a new Project", () => {
                 category_id: category.id,
                 user_id: "invalid_user_id"
             })
-        ).rejects.toEqual(new AppErrors("User does not Exists!"));
+        ).rejects.toEqual(new AppErrors("Usuário não Existe!"));
     })
 
     it("Shold not be able to create project if category does not Exists!", async () => {
@@ -116,7 +116,7 @@ describe("Create a new Project", () => {
                 category_id: "invalid_category",
                 user_id: user.id
             })
-        ).rejects.toEqual(new AppErrors("Category does not Exists!"));
+        ).rejects.toEqual(new AppErrors("Categoria não Existe!"));
     })
 
 })

@@ -5,6 +5,7 @@ import { IUserTokensRepository } from '../../interfaces/IUserTokensRepository';
 import auth from '../../../../config/auth';
 import { AppErrors } from '../../../../shared/errors/AppErrors';
 import dayjs from 'dayjs';
+import { IDateProvider } from '../../../../shared/container/providers/DateProvider/IDateProvider';
 
 interface IPayload {
     sub: string;
@@ -15,7 +16,9 @@ interface IPayload {
 class RefreshTokenUseCase {
     constructor(
         @inject("UserTokensRepository")
-        private userTokensRepository: IUserTokensRepository
+        private userTokensRepository: IUserTokensRepository,
+        @inject("DaysDateProvider")
+        private dateProvider: IDateProvider
     ) {}
     async execute(token: string): Promise<string> {
         const {sub, login } = verify(token, auth.secret_refresh_token) as IPayload;
@@ -37,7 +40,7 @@ class RefreshTokenUseCase {
             expiresIn: auth.expires_in_refresh_token
         })
 
-        const expires_date = dayjs().add(auth.expires_refresh_token_days, "days").toDate();
+        const expires_date = this.dateProvider.addDays(auth.expires_refresh_token_days);
 
         await this.userTokensRepository.create({
             expires_date,

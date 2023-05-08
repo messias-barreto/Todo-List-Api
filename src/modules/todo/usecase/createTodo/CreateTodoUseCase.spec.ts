@@ -53,7 +53,7 @@ describe("Create a new Todo", () => {
     });
 
 
-    it("Shold not be able create a new Todo if Name already Exists!", async() => {
+    it("Shold not be able create a new Todo if Title already Exists!", async() => {
         const project = await projectRepository.create({
             name: "any_title",
             description: "any_description",
@@ -73,7 +73,7 @@ describe("Create a new Todo", () => {
                 description: "any_description", 
                 project_id: project.id
             })
-        ).rejects.toEqual(new AppErrors("Todo already Exists!"))
+        ).rejects.toEqual(new AppErrors("Essa Tarefa Já foi adicionada!"))
     });
 
 })
