@@ -40,6 +40,6 @@ jobs:
           script: | 
             cd ~/projects/Todo-List-Api
             yarn
-            ./node_modules/.bin/typeorm migration:run
+            ./dist/database/typeorm/data-source.js migration:run
             pm2 restart server
       
