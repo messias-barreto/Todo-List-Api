@@ -40,6 +40,6 @@ jobs:
           script: | 
             cd ~/projects/Todo-List-Api
             yarn
-            ./dist/database/typeorm/data-source.js migration:run
+            ./dist/database/typeorm/data-source.js migration:run --update-env
             pm2 restart server
       
