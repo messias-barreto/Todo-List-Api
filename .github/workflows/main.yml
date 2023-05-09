@@ -2,43 +2,53 @@ name: CI
 on:
   push:
     branches: [ main ]
-    
-  workflow_dispatch:
+  workflow_dispatch:  
+  
 jobs:
-  build:
-    runs-on: ubuntu-latest
+   build:   
+    name: deploy to staging    
+    runs-on: ubuntu-22.04
     
-    steps: 
-      - uses: actions/checkout@v3
-      
-      - name: Setup NodeJs
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
-      - name: Install Dependencies
-        run: yarn
-        
-      - name: Build
-        run: yarn build
-        
-      - uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          port: ${{ secrets.SSH_PORT }}
-          key: ${{ secrets.SSH_KEY }}
-          source: "., !node_modules"
-          target: "~/projects/Todo-List-Api"
-          
-      - name: Update API
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          port: ${{ secrets.SSH_PORT }}
-          key: ${{ secrets.SSH_KEY }}
-          script: | 
-            cd ~/projects/Todo-List-Api
+    steps:    
+     - uses: actions/checkout@v2
+     
+     - name: Setup Nodejs
+       uses: actions/setup-node@v2
+       with: 
+         node-version: 18.x
+         
+     - name: Find and Replace
+       uses: jacobtomlinson/gha-find-replace@v2
+       with:
+         find: "./src/"
+         replace: "./dist/"
+         include: "**data-source.ts" # Will match all README.md files in any nested directory
+         
+     - name: Install Dependencies
+       run: yarn
+       
+     - name: Build
+       run: yarn build
+       
+     - uses: appleboy/scp-action@master
+       with:
+         host: ${{ secrets.SSH_HOST }}
+         username: ${{ secrets.SSH_USER }}
+         port: ${{ secrets.SSH_PORT }}
+         key: ${{ secrets.SSH_KEY }} 
+         source: "., !node_modules"
+         target: "~/projects/Todo-List-App"
+         
+     - name: Update API
+       uses: appleboy/ssh-action@master
+       with:
+         host: ${{ secrets.SSH_HOST }}
+         username: ${{ secrets.SSH_USER }}
+         port: ${{ secrets.SSH_PORT }}
+         key: ${{ secrets.SSH_KEY }} 
+         script: |
+            cd ~/projects/Todo-List-App
             yarn
-            pm2 restart server --update-env
+            yarn typeorm migration:run 
+            | sudo -S pm2 restart server
       
