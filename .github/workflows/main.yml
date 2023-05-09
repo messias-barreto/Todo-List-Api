@@ -17,13 +17,6 @@ jobs:
           node-version: 18.x
       - name: Install Dependencies
         run: yarn
-      
-      - name: Find and Replace
-        uses: jacobtomlinson/gha-find-replace@v2
-        with:
-         find: "./src/database/typeorm/"
-         replace: "./dist/database/typeorm/"
-         include: "**data-source.ts" # Will match all README.md files in any nested directory
         
       - name: Build
         run: yarn build
@@ -47,6 +40,5 @@ jobs:
           script: | 
             cd ~/projects/Todo-List-Api
             yarn
-            yarn typeorm migration:run
             pm2 restart server
       
