@@ -21,7 +21,8 @@ jobs:
       - name: Build
         run: yarn build
         
-      - uses: appleboy/scp-action@v0.1.4
+      - name: copy file via ssh key
+        uses: appleboy/scp-action@main
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
