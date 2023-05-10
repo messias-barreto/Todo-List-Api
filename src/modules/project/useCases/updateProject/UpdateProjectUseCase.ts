@@ -33,7 +33,7 @@ class UpdateProjectUseCase {
         }
 
         const projectNameAlreadyExists = await this.projectRepository.findProjectByName(name, user_id); 
-        if(projectNameAlreadyExists) {
+        if(projectNameAlreadyExists && projectNameAlreadyExists.id !== id) {
             throw new AppErrors("Projeto com o Mesmo Nome ja foi Cadastrado!");
         }
 
