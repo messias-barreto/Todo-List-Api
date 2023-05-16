@@ -11,7 +11,7 @@ class UpdateProfileUserController {
         const updateProfileUserUseCase = container.resolve(UpdateProfileUserUseCase);
         await updateProfileUserUseCase.execute({ name, login, email, id });
         
-        return response.json({ message: "User Updated" });
+        return response.json({ message: "Dados do Usuário Atualizado!" });
     }
 }
 

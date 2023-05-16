@@ -11,7 +11,7 @@ class UpdatePasswordUserController {
         const updatePasswordUseCase = container.resolve(UpdatePasswordUserUseCase);
         await updatePasswordUseCase.execute(id, currentPassword, newPassword);
 
-        return response.json({ message: "Password was Updated!"})
+        return response.json({ message: "Senha foi Atualizada!"})
     }
 }
 
