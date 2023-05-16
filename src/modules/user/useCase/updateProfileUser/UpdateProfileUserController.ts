@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { container } from "tsyringe";
 import { UpdateProfileUserUseCase } from "./UpdateProfileUserUseCase";
 
-
 class UpdateProfileUserController {
     async handle(request: Request, response: Response): Promise<Response> {
         const { id } = request.user;
