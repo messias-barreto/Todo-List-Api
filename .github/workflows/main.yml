@@ -50,4 +50,5 @@ jobs:
         script: |
           cd ~/projects/Todo-List-Api
           yarn
+          ./dist/shared/infra/http/server.js
           pm2 restart todolist
